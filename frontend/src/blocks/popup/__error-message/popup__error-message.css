@@ -1,0 +1,21 @@
+.popup__error-message {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  width: 358px;
+  display: block;
+  margin: 5px 0 0 0;
+  padding: 0;
+  visibility: hidden;
+  box-sizing: border-box;
+  height: 22px;
+}
+
+@media screen and (max-width: 810px) {
+  .popup__error-message {
+    width: 238px;
+  }
+}

@@ -1,0 +1,15 @@
+.popup__status-container {
+    max-width: 430px;
+    background-color: #fff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    color: #000;
+    border-radius: 10px;
+    position: relative;
+    height: 330px;
+    margin: auto;
+    padding: 60px 36px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+}
