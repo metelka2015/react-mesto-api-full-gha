@@ -37,7 +37,7 @@ app.use(helmet());
 app.use(requestLogger);
 
 app.post(
-  '/signup',
+  '/api/signup',
   celebrate({
     body: Joi.object().keys({
       name: Joi.string().min(2).max(30),
@@ -51,7 +51,7 @@ app.post(
 );
 
 app.post(
-  '/signin',
+  '/api/signin',
   celebrate({
     body: Joi.object().keys({
       email: Joi.string().required().email(),
