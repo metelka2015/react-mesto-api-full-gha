@@ -1,4 +1,4 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "http://localhost:3000";
 
 function checkRes(res) {
   if (res.ok) {
@@ -34,7 +34,7 @@ export const login = (email, password) => {
     },
     body: JSON.stringify({ email, password }),
   });
-}
+};
 
 export const checkToken = (token) => {
   return request(`${BASE_URL}/users/me`, {

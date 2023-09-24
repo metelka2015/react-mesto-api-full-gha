@@ -2,12 +2,14 @@
 /* eslint-disable no-console */
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
 // eslint-disable-next-line import/no-extraneous-dependencies
 const helmet = require('helmet');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { errors } = require('celebrate');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { celebrate, Joi } = require('celebrate');
+const cors = require('cors');
 const router = require('./routes');
 const { login } = require('./controllers/login');
 const { createUser } = require('./controllers/users');
@@ -27,6 +29,8 @@ mongoose
   });
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(helmet());
 

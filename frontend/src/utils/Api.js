@@ -12,28 +12,37 @@ export default class Api {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  //универсальный метод запроса с проверкой ответа
+   //универсальный метод запроса с проверкой ответа
   _request(url, options) {
     return fetch(url, options).then(this._checkRes);
   }
 
-  getUserInfo() {
+  getUserInfo(token) {
     return this._request(`${this._url}/users/me`, {
       method: "GET",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
     });
   }
 
-  getInitialCards() {
+  getInitialCards(token) {
     return this._request(`${this._url}/cards`, {
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
     });
   }
 
-  setUserInfo(data) {
+  setUserInfo(data, token) {
     return this._request(`${this._url}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
       body: JSON.stringify({
         name: data.name,
         about: data.about,
@@ -41,10 +50,13 @@ export default class Api {
     });
   }
 
-  addNewCard(data) {
+  addNewCard(data, token) {
     return this._request(`${this._url}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
       body: JSON.stringify({
         name: data.name,
         link: data.link,
@@ -52,38 +64,53 @@ export default class Api {
     });
   }
 
-  deleteCard(id) {
+  deleteCard(id, token) {
     return this._request(`${this._url}/cards/${id}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
     });
   }
 
-  changeLikeCardStatus(id, isLiked) {
+  changeLikeCardStatus(id, isLiked, token) {
     return this._request(`${this._url}/cards/${id}/likes`, {
       method: isLiked ? "PUT" : "DELETE",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
     });
   }
 
-  addLike(id) {
+  addLike(id, token) {
     return this._request(`${this._url}/cards/${id}/likes`, {
       method: "PUT",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
     });
   }
 
-  removeLike(id) {
+  removeLike(id, token) {
     return this._request(`${this._url}/cards/${id}/likes`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
     });
   }
 
-  setUserAvatar(data) {
+  setUserAvatar(data, token) {
     return this._request(`${this._url}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`,
+      },
       body: JSON.stringify({
         avatar: data.avatar,
       }),
@@ -92,9 +119,8 @@ export default class Api {
 }
 
 export const api = new Api({
-  url: "https://mesto.nomoreparties.co/v1/cohort-68",
+  url: "http://localhost:3000",
   headers: {
-    authorization: "13586674-c353-49e6-be07-3fb91b47b641",
     "Content-Type": "application/json",
   },
 });

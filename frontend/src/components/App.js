@@ -34,19 +34,23 @@ function App() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    api
-      .getInitialCards()
+    const token = localStorage.getItem('token');
+    if (loggedIn) {
+      api
+      .getInitialCards(token)
       .then((res) => {
         setCards(res);
       })
       .catch(console.error);
     api
-      .getUserInfo()
+      .getUserInfo(token)
       .then((res) => {
         setCurrentUser(res);
       })
       .catch(console.error);
-  }, []);
+    }
+    
+  }, [loggedIn]);
 
   React.useEffect(() => {
     checkToken();
@@ -79,55 +83,71 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const token = localStorage.getItem('token');
+    const isLiked = card.likes.some((i) => i === currentUser._id);
+    if (loggedIn) {      
     api
-      .changeLikeCardStatus(card._id, !isLiked)
+      .changeLikeCardStatus(card._id, !isLiked, token)
       .then((newCard) => {
         setCards((cards) =>
           cards.map((c) => (c._id === card._id ? newCard : c)),
         );
       })
       .catch(console.error);
+    }    
   }
 
   function handleCardDelete() {
-    api
-      .deleteCard(cardDelete._id)
+    const token = localStorage.getItem('token');
+    if (loggedIn) {
+      api
+      .deleteCard(cardDelete._id, token)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== cardDelete._id));
         closeAllPopups();
       })
       .catch(console.error);
+    }    
   }
 
   function handleUpdateUser(data) {
-    api
-      .setUserInfo(data)
+    const token = localStorage.getItem('token');
+    if (loggedIn) {
+      api
+      .setUserInfo(data, token)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopups();
       })
       .catch(console.error);
+    }
+    
   }
 
   function handleUpdateAvatar(data) {
-    api
-      .setUserAvatar({ avatar: data })
+    const token = localStorage.getItem('token');
+    if (loggedIn) {
+      api
+      .setUserAvatar({ avatar: data }, token)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopups();
       })
       .catch(console.error);
+    }    
   }
 
   function handleAddPlaceSubmit(data) {
-    api
-      .addNewCard(data)
+    const token = localStorage.getItem('token');
+    if (loggedIn) {
+      api
+      .addNewCard(data, token)
       .then((newCard) => {
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
       .catch(console.error);
+    }    
   }
 
   function handleRegister(email, password) {
