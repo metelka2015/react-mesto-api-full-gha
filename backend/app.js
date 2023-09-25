@@ -1,8 +1,9 @@
 // eslint-disable-next-line linebreak-style
 /* eslint-disable no-console */
+const { DB_URL, PORT } = require('./app.config.js');
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config({ path: './.env' });
+//require('dotenv').config({ path: './.env' });
 // eslint-disable-next-line import/no-extraneous-dependencies
 const helmet = require('helmet');
 // eslint-disable-next-line import/no-extraneous-dependencies

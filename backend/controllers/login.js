@@ -3,8 +3,9 @@ const userModel = require('../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { HTTP_STATUS_OK } = require('http2').constants;
-require('dotenv').config();
-const { NODE_ENV, JWT_SECRET } = process.env;
+//require('dotenv').config();
+//const { NODE_ENV, JWT_SECRET } = process.env;
+const { JWT_SECRET, NODE_ENV } = require('./app.config.js');
 
 const UnauthorizedError = require('../utils/errors/unauthtorizedError');
 
