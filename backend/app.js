@@ -14,7 +14,7 @@ const { login } = require('./controllers/login');
 const { createUser } = require('./controllers/users');
 const handleError = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const cors = require('./middlewares/cors');
+const cors = require('./middlewares/corsMiddleware');
 
 const { regExp } = require('./utils/constants');
 
