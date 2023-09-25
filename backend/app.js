@@ -1,6 +1,6 @@
 // eslint-disable-next-line linebreak-style
 /* eslint-disable no-console */
-require('dotenv').config({ path: './.env' });
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 // eslint-disable-next-line import/no-extraneous-dependencies
