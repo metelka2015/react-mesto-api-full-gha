@@ -13,4 +13,4 @@ IP 130.193.53.217
 
 Frontend http://metelka.nomoredomainsrocks.ru/api
 
-Backend http://metelka.nomoredomainsrocks.ru
+Backend http://api.metelka.nomoredomainsrocks.ru
