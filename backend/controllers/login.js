@@ -3,6 +3,8 @@ const userModel = require('../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { HTTP_STATUS_OK } = require('http2').constants;
+require('dotenv').config();
+const { JWT_SECRET } = process.env;
 
 const UnauthorizedError = require('../utils/errors/unauthtorizedError');
 
@@ -22,7 +24,7 @@ const login = (req, res, next) => {
             // хеши не совпали — отклоняем
             throw new UnauthorizedError('Неправильные почта или пароль');
           }
-          const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
+          const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
           res.status(HTTP_STATUS_OK).send({ token });
         })
         .catch(next);
