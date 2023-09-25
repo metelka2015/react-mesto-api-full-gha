@@ -1,10 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
-export function Register({ onRegister }) {
+export function Register({ onRegister, loggedIn }) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
+  if(loggedIn) {
+    return <Navigate to="/" replace />
+  }
+  
   function handleChangeEmail(e) {
     setEmail(e.target.value);
   }

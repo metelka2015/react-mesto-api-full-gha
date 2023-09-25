@@ -1,8 +1,13 @@
 import React from "react";
+import { Navigate } from 'react-router-dom';
 
-export function Login({ onLogin }) {
+export function Login({ onLogin, loggedIn}) {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  if(loggedIn) {
+    return <Navigate to="/" replace />
+  }
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);

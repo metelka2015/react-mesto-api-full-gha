@@ -172,13 +172,11 @@ function App() {
     auth
       .login(email, password)
       .then((res) => {
-        if (res) {
           localStorage.setItem("token", res.token);
           setLoggedIn(true);
-          setUserInfo(email, password);
+         // setUserInfo(email, password);
           navigate("/", { replace: true });
-        }
-      })
+        })
       .catch((error) => {
         setIsInfoTooltipOpen(true);
         setLoggedIn(false);
@@ -192,13 +190,14 @@ function App() {
       auth
         .checkToken(token)
         .then((res) => {
-          setUserInfo(res.data.email);
+          setUserInfo(res.email); //res.data.email
           setLoggedIn(true);
           navigate("/", { replace: true });
         })
         .catch((error) => {
           localStorage.removeItem("token");
           navigate("/sign-up", { replace: true });
+          setLoggedIn(false);
           console.log(error);
         });
     }
@@ -226,9 +225,9 @@ function App() {
         <Routes>
           <Route
             path="/sign-up"
-            element={<Register onRegister={handleRegister} />}
+            element={<Register onRegister={handleRegister}  loggedIn={loggedIn}/>}
           />
-          <Route path="/sign-in" element={<Login onLogin={handleLogin} />} />
+          <Route path="/sign-in" element={<Login onLogin={handleLogin}  loggedIn={loggedIn}/>} />
           <Route
             path="/"
             element={
