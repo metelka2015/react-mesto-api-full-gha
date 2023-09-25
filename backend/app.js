@@ -15,6 +15,7 @@ const { login } = require('./controllers/login');
 const { createUser } = require('./controllers/users');
 const handleError = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const cors = require('./middlewares/cors');
 
 const { regExp } = require('./utils/constants');
 
@@ -30,11 +31,7 @@ mongoose
 
 const app = express();
 
-app.use(cors({
-  origin: ['http://localhost:3001',
-    'http://metelka.nomoredomainsrocks.ru',
-    'https://metelka.nomoredomainsrocks.ru'],
-}));
+app.use(cors);
 
 app.use(express.json());
 app.use(helmet());

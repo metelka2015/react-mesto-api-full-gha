@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 130.193.53.217
+IP 130.193.53.217
 
 Frontend http://metelka.nomoredomainsrocks.ru/api
 
