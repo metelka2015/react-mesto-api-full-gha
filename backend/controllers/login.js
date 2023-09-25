@@ -1,18 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable import/extensions */
 // eslint-disable-next-line import/order
-import { findOne } from '../models/user';
-import { sign } from 'jsonwebtoken';
-import { compare } from 'bcrypt';
-import { constants } from 'http2';
-
-import UnauthorizedError from '../utils/errors/unauthtorizedError';
-
 require('dotenv').config();
-
-const { HTTP_STATUS_OK } = constants;
-
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const { HTTP_STATUS_OK } = require('http2').constants;
 const { NODE_ENV, JWT_SECRET } = process.env;
+const UnauthorizedError = require('../utils/errors/unauthtorizedError');
+const userModel = require('../models/user');
+const { HTTP_STATUS_OK } = require('http2').constants;
+
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
