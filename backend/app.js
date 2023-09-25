@@ -1,9 +1,9 @@
 // eslint-disable-next-line linebreak-style
 /* eslint-disable no-console */
+require('dotenv').config({ path: './.env' });
 const { DB_URL, PORT } = require('./app.config.js');
 const express = require('express');
 const mongoose = require('mongoose');
-//require('dotenv').config({ path: './.env' });
 // eslint-disable-next-line import/no-extraneous-dependencies
 const helmet = require('helmet');
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -19,7 +19,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { regExp } = require('./utils/constants');
 
-//const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 mongoose
   .connect(DB_URL, {
