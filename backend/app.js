@@ -1,7 +1,6 @@
 // eslint-disable-next-line linebreak-style
 /* eslint-disable no-console */
 require('dotenv').config({ path: './.env' });
-const { DB_URL, PORT } = require('./app.config.js');
 const express = require('express');
 const mongoose = require('mongoose');
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -33,12 +32,12 @@ const app = express();
 
 app.use(cors({
   origin: ['http://localhost:3000',
-  'http://metelka.nomoredomainsrocks.ru',
-  'https://metelka.nomoredomainsrocks.ru'],
+    'http://metelka.nomoredomainsrocks.ru',
+    'https://metelka.nomoredomainsrocks.ru'],
 
-  credentials: true
-  })
-);
+  credentials: true,
+}));
+
 app.use(express.json());
 app.use(helmet());
 

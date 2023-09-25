@@ -1,7 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/newline-after-import */
 /* eslint-disable consistent-return */
 /* eslint-disable linebreak-style */
 const jwt = require('jsonwebtoken');
-//require('dotenv').config();
+require('dotenv').config();
 const { NODE_ENV, JWT_SECRET } = process.env;
 const UnauthorizedError = require('../utils/errors/unauthtorizedError');
 
