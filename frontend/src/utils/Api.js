@@ -119,7 +119,7 @@ export default class Api {
 }
 
 export const api = new Api({
-  url: "http://api.metelka.nomoredomainsrocks.ru",
+  url: "http://metelka.nomoredomainsrocks.ru/api",
   headers: {
     "Content-Type": "application/json",
   },
