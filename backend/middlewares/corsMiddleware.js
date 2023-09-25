@@ -1,5 +1,5 @@
 const allowedCors = [
-  'http://localhost:3001',
+  'http://localhost:3000',
   'https://metelka.nomoredomainsrocks.ru',
   'https://metelka.nomoredomainsrocks.ru',
 ];
