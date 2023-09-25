@@ -1,7 +1,7 @@
 const allowedCors = [
   'http://localhost:3001',
-  'http://metelka.nomoredomainsrocks.ru',
-  'http://metelka.nomoredomainsrocks.ru',
+  'https://metelka.nomoredomainsrocks.ru',
+  'https://metelka.nomoredomainsrocks.ru',
 ];
 
 module.exports = (req, res, next) => {
