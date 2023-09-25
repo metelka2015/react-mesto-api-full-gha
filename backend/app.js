@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 const express = require('express');
 const mongoose = require('mongoose');
-require('dotenv').config();
+require('dotenv').config({ path: './.env' });
 // eslint-disable-next-line import/no-extraneous-dependencies
 const helmet = require('helmet');
 // eslint-disable-next-line import/no-extraneous-dependencies
