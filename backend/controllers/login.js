@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 // eslint-disable-next-line import/order
 const userModel = require('../models/user');
 const jwt = require('jsonwebtoken');
