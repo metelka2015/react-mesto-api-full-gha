@@ -9,7 +9,6 @@ const helmet = require('helmet');
 const { errors } = require('celebrate');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { celebrate, Joi } = require('celebrate');
-const cors = require('cors');
 const router = require('./routes');
 const { login } = require('./controllers/login');
 const { createUser } = require('./controllers/users');
