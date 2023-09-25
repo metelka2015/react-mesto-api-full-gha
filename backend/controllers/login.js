@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { HTTP_STATUS_OK } = require('http2').constants;
 
-const { NODE_ENV, JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET = 'fallback-secret-alfa-234' } = process.env;
 
 const UnauthorizedError = require('../utils/errors/unauthtorizedError');
 
