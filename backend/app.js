@@ -31,7 +31,7 @@ mongoose
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:3000',
+  origin: ['http://localhost:3001',
     'http://metelka.nomoredomainsrocks.ru',
     'https://metelka.nomoredomainsrocks.ru'],
 }));
