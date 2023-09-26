@@ -16,7 +16,7 @@ const handleError = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/corsMiddleware');
 
-const { regExp } = require('./utils/constants');
+const { regExp, regEmail } = require('./utils/constants');
 
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
@@ -50,7 +50,7 @@ app.post(
       name: Joi.string().min(2).max(30),
       about: Joi.string().min(2).max(30),
       avatar: Joi.string().regex(regExp),
-      email: Joi.string().required().email(),
+      email: Joi.string().required().pattern(regEmail),
       password: Joi.string().required(),
     }),
   }),
