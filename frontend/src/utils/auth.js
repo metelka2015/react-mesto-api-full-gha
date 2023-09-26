@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://api.metelka.nomoredomainsrocks.ru";
 
 function checkRes(res) {
   if (res.ok) {
