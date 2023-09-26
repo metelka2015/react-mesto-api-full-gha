@@ -174,7 +174,7 @@ function App() {
       .then((res) => {
           localStorage.setItem("token", res.token);
           setLoggedIn(true);
-         // setUserInfo(email, password);
+         setUserInfo(email, password);
           navigate("/", { replace: true });
         })
       .catch((error) => {
