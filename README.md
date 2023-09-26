@@ -7,7 +7,7 @@
 
 Адрес репозитория: https://github.com/metelka2015/react-mesto-api-full-gha
 
-## Ссылки на проект
+## Ссылки на проект:
 
 IP 130.193.53.217
 
