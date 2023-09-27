@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const helmet = require('helmet');
 // eslint-disable-next-line import/no-extraneous-dependencies
+const bodyParser = require('body-parser');
+// eslint-disable-next-line import/no-extraneous-dependencies
 const { errors } = require('celebrate');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { celebrate, Joi } = require('celebrate');
@@ -29,11 +31,12 @@ mongoose
   });
 
 const app = express();
-
+app.use(helmet());
 app.use(cors);
 
 app.use(express.json());
-app.use(helmet());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger);
 
